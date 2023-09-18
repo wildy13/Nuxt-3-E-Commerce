@@ -1,11 +1,14 @@
-const { createUser, getUsers, editUsers, deleteUsers } = require("./controller");
+const { createUser, getUsers, editUsers, deleteUsers, getMe } = require("./controller");
+
+const { verifyToken } = require('../auth/service');
 
 const users = async (fastify) => {
   /* POST */
   fastify.route({
     method: 'POST',
     url: '/',
-    handler: createUser
+    handler: createUser,
+    
   });
   
   fastify.route({
@@ -18,8 +21,16 @@ const users = async (fastify) => {
   fastify.route({
     method: 'GET',
     url: '/',
-    handler: getUsers
+    handler: getUsers,
+    beforeHandler:[verifyToken],
   });
+
+    /* GET */
+    fastify.route({
+      method: 'GET',
+      url: '/me',
+      handler: getMe
+    });
 
   /* PUT */
   fastify.route({

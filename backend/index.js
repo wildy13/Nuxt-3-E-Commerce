@@ -25,6 +25,7 @@ const connect = async () => {
 
 const start = async () => {
     try {
+        //User.sync({force:true})
         fastify.listen ({ port, host }, () => console.log(`Server Running on Port ${port}`));
         await connect();
     } catch (error) {

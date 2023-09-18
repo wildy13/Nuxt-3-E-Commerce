@@ -2,12 +2,16 @@ const User = require('./model')
 
 const createUser = async (req, res) => {
     const {
-        username
+        username,
+        password,
+        confPassword
     } = req.body
 
     try {
         const newUser = new User({
-            username
+            username,
+            password,
+            confPassword
         })
 
         const user = await newUser.save();
@@ -15,6 +19,22 @@ const createUser = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+const getMe = async (req, res) => {
+  try {
+      const user = await User.findOne({
+          attributes: [
+              'id',
+              'username',
+          ],
+          where : { username : req.auth.username } 
+      });
+      res.status(200).json({ user })
+  }
+  catch (err) {
+      res.status(500).send(err)
+  }
 }
 
 const getUsers = async (req, res) => {
@@ -54,4 +74,4 @@ const editUsers = async (req, res) => {
     res.status(200).send(req.body);
   };
 
-module.exports = { createUser, getUsers, editUsers,  deleteUsers}
+module.exports = { createUser, getUsers, getMe, editUsers,  deleteUsers}
