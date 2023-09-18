@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wildy Johanes Simanjuntak",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/express": "^2.3.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.23.2",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
