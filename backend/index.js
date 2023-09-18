@@ -2,7 +2,7 @@ const Fastify = require('fastify');
 const fastifyCors = require('@fastify/cors');
 const router = require('./router');
 
-const fastify = Fastify();
+const fastify = Fastify({ logger: true});
 fastify.register(fastifyCors, {
     origin: '*',
     methods: 'GET, PUT, POST, DELETE',
@@ -25,8 +25,6 @@ const connect = async () => {
 
 const start = async () => {
     try {
-        router(fastify);
-        // User.sync({ force:true  })
         fastify.listen ({ port, host }, () => console.log(`Server Running on Port ${port}`));
         await connect();
     } catch (error) {
