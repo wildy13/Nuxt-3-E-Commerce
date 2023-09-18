@@ -28,4 +28,31 @@ const getUsers = async (req, res) => {
     }
 }
 
-module.exports = { createUser, getUsers}
+const editUsers = async (req, res) => {
+    const user = await User.findOne({
+      attributes: [
+        'id',
+        'username',
+      ],
+      where: {
+        id: req.params.id,
+      },
+    });
+    user.username = req.body.username;
+    const save = await user.save();
+    res.status(200).send(save);
+  };
+
+  const deleteUsers = async (req, res) => {
+    await Promise.all(
+      req.body.map(async (payload) => {
+        console.log(payload.id)
+        await User.destroy({
+          where: { id: payload.id },
+        });
+      }),
+    );
+    res.status(200).send(req.body);
+  };
+
+module.exports = { createUser, getUsers, editUsers,  deleteUsers}
