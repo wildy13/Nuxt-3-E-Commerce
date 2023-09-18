@@ -46,7 +46,6 @@ const editUsers = async (req, res) => {
   const deleteUsers = async (req, res) => {
     await Promise.all(
       req.body.map(async (payload) => {
-        console.log(payload.id)
         await User.destroy({
           where: { id: payload.id },
         });
