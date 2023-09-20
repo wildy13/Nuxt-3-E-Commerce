@@ -14,22 +14,32 @@
               <UInput
                 v-model="state.username"
                 placeholder="Username..."
-                class="bg-transparent"
               />
             </UFormGroup>
             <UFormGroup label="Password" name="password" class="p-1">
               <UInput
+                id="password-input"
                 v-model="state.password"
                 type="password"
                 placeholder="Password..."
-                class="bg-transparent"
+                trailing
               />
+              <UButton
+                size="xl"
+                color="white"
+                variant="link"
+                class="absolute inset-y-0 right-0 mt-1 mr-2"
+                @click="togglePasswordVisibility"
+              >              
+                <UIcon v-if="passwordVisible" name="i-heroicons-eye"></UIcon>
+                <UIcon v-else name="i-heroicons-eye-slash"></UIcon>
+              </UButton>
             </UFormGroup>
             <div class="p-1 flex justify-between items-center">
-              <UButton type="submit"> Submit </UButton>
-                <NuxtLink to="/">
-                    <div class="text-sm">Back to home?</div>
-                </NuxtLink>
+              <UButton  type="submit"> Submit </UButton>
+              <NuxtLink to="/">
+                <div class="text-sm">Back to home?</div>
+              </NuxtLink>
             </div>
           </UForm>
         </div>
@@ -66,4 +76,15 @@ const validate = (state) => {
 async function submit(event) {
   console.log(event.data);
 }
+
+const passwordVisible = ref(false);
+
+const togglePasswordVisibility = () => {
+  passwordVisible.value = !passwordVisible.value;
+  const passwordInput = document.querySelector("#password-input"); // Gantilah "password-input" dengan id input password Anda.
+  if (passwordInput) {
+    passwordInput.type = passwordVisible.value ? "text" : "password";
+  }
+};
 </script>
+
