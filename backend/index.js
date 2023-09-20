@@ -2,7 +2,7 @@ const Fastify = require('fastify');
 const fastifyCors = require('@fastify/cors');
 const router = require('./router');
 
-const fastify = Fastify({ logger: true});
+const fastify = Fastify();
 fastify.register(fastifyCors, {
     origin: '*',
     methods: 'GET, PUT, POST, DELETE',
