@@ -82,7 +82,7 @@
       const { username, password } = state.value;
       await signIn('credentials', { username, password, callbackUrl: '/dashboard' });
     } catch (error) {
-      errorMessage.value = error?.response._data.message;
+      console.log(error)
     }
   
     return null;

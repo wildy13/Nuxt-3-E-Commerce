@@ -13,6 +13,13 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@sidebase/nuxt-auth"],
+
+  runtimeConfig: {
+    public: {
+      apiUrl: '',
+    },
+  },
+  
   auth: {
     origin: process.env.ORIGIN,
     baseURL: process.env.BACKEND_URL,
