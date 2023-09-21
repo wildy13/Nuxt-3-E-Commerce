@@ -20,7 +20,6 @@
     >
       <div v-for="product in filteredProducts" :key="product.id">
         <General :product="product" />
-        {{ pageCount }}
       </div>
     </div>
   </div>
