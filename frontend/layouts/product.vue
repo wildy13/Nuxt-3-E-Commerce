@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen">
+    <div>
         <Navbar />
         <div class="container mx-auto pt-24">
             <slot />

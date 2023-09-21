@@ -12,5 +12,41 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "@sidebase/nuxt-auth"],
+  auth: {
+    origin: process.env.ORIGIN,
+    baseURL: process.env.BACKEND_URL,
+    provider: {
+      type: 'local',
+      sessionDataType: {
+        id: 'string',
+        username: 'string',
+      },
+      pages:{
+        login: "/auth/login/"
+      },
+      endpoints: {
+        signIn: {
+          path: "/api/auth/login",
+          method: "post"
+        },
+        signOut: {
+          path: "/logout",  
+          method: "post"
+        },
+/*         signUp: {
+          path: "/register",
+          method: "post"
+        }, */
+        getSession: {
+          path: "/api/auth/session",
+          method: "get"
+        }
+      },
+    },
+    token: {
+      maxAgeInSeconds: 8 * 60 * 60,
+    },
+    globalAppMiddleware: true,
+  },
 });

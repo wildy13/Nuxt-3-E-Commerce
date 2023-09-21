@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 fixed top-0 w-full z-10">
+  <div class="p-2 fixed top-0 w-full z-10 bg-gradient-to-r from-gray-900 to-slate-500">
     <div class="flex justify-between items-center mx-4">
       <div>This is Logo</div>
       <div class="flex items-center gap-4">
