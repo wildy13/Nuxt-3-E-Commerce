@@ -1,6 +1,7 @@
 const User = require('../user/model');
 const { setup } = require('./passport');
 const { Login } = require('./controller');
+const { getMe } = require('../user/controller');
 
 setup(User);
 
@@ -12,6 +13,12 @@ const login = async (fastify) =>  {
     method: 'POST',
     url: '/login',    
     handler: Login,     
+  });
+/* GET */
+  fastify.route({
+    method: 'GET',
+    url: '/session',    
+    handler: getMe,     
   });
 }
 

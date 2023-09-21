@@ -23,14 +23,14 @@ const createUser = async (req, res) => {
 
 const getMe = async (req, res) => {
   try {
-      const user = await User.findOne({
+    const user = await User.findOne({
           attributes: [
               'id',
               'username',
           ],
-          where : { username : req.auth.username } 
+          where : { username : req.user.username } 
       });
-      res.status(200).json({ user })
+      res.status(200).send({ user })
   }
   catch (err) {
       res.status(500).send(err)
