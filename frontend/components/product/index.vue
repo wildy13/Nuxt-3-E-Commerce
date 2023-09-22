@@ -2,11 +2,7 @@
   <div>
     <!-- Dropdown -->
     <div>
-      {{ categoryItem }}
-      <UDropdown
-        :items="categoryItem"
-        :popper="{ placement: 'bottom-start' }"
-      >
+      <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }">
         <UButton
           color="white"
           label="Options"
@@ -18,7 +14,7 @@
     <div
       class="flex flex-col justify-center items-center md:grid md:grid-cols-2 xl:grid-cols-3"
     >
-      <div v-for="product in productsItem" :key="product.id">
+      <div v-for="product in filterProducts" :key="product.id">
         <ProductCard :product="product" />
       </div>
     </div>
@@ -31,6 +27,8 @@ import { useProductStore } from "../../stores/products";
 import { useCategoryStore } from "../../stores/category";
 
 const search = ref("");
+const category = ref("");
+const filteredByCategory = ref([]);
 
 const productStore = useProductStore();
 const categoryStore = useCategoryStore();
@@ -45,14 +43,24 @@ const isLoading = ref(true);
 onMounted(loadAsyncData);
 
 const categoryItem = computed(() => {
-  return categoryStore.items.map((item) => ({
-    label: item.name,
-  }));
+  return categoryStore.items.map((item) => [
+    {
+      label: item.name,
+      click: () => {
+        category.value = item.name;
+      },
+    },
+  ]);
 });
 
-const productsItem = computed(() =>
-  productStore.items.filter(({ name }) =>
-    [name].some((val) => val.toLowerCase().includes(search.value.toLowerCase()))
-  )
-);
+const filterProducts = computed(() => {
+  if (category.value === "") {
+    return productStore.items;
+  } else {
+    return productStore.items.map(
+      (product) =>
+      product.category.toLowerCase() === category.value.toLowerCase()
+    );
+  }
+});
 </script>
