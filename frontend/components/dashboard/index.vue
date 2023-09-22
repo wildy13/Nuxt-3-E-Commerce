@@ -1,3 +1,9 @@
 <template>
-    <div>This is Dashboard</div>
+  <div class="h-screen">
+    <DashboardNavbar/>
+  </div>
 </template>
+
+<script setup>
+    const isOpen = ref(false);
+</script>

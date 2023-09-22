@@ -5,7 +5,6 @@ const { getMe } = require("../user/controller");
 
 setup(User);
 
-// POST Router
 const login = async (fastify) => {
   /* POST */
 

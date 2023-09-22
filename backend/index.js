@@ -4,10 +4,7 @@ const jwt = require('@fastify/jwt');
 const router = require('./router');
 
 const fastify = Fastify();
-fastify.register(fastifyCors, {
-    origin: '*',
-    methods: 'GET, PUT, POST, DELETE',
-  });
+fastify.register(fastifyCors);
   fastify.register(jwt, { secret: process.env.SESSION_KEY, sign: { expiresIn: '8h' } });
 
   fastify.addHook('onRequest', async (req, res) => {
@@ -22,7 +19,9 @@ fastify.register(fastifyCors, {
 fastify.register(router); 
 const { sequelize, config: { host, port } } = require('./config');
 
-const User = require('./api/user/model')
+const User = require('./api/user/model');
+const products = require('./api/product/model');
+const category = require('./api/category/model');
 
 const connect = async () => {
     try {
@@ -36,7 +35,7 @@ const connect = async () => {
 
 const start = async () => {
     try {
-        //User.sync({force:true})
+        //products.sync({force:true})
         fastify.listen ({ port, host }, () => console.log(`Server Running on Port ${port}`));
         await connect();
     } catch (error) {
