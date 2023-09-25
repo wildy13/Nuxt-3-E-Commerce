@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-2 fixed bottom-0 w-full z-10 bg-gradient-to-tr from-gray-900 to-slate-500"
+    class="p-2 bg-gradient-to-tr from-gray-900 to-slate-500"
   >
     <div class="flex justify-between items-center text-sm">
       <div class="flex gap-4">

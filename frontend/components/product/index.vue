@@ -2,7 +2,7 @@
   <div>
     <!-- Dropdown -->
     <div class="flex justify-between mx-4">
-      <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }" :ui="{background:'bg-gray-900', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}">
+      <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }" :ui="{background:'bg-gray-800', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}">
         <UButton
           color="white"
           label="Options"
