@@ -4,7 +4,7 @@
   "description": "Backend",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "nodemon index.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wildy Johanes Simanjuntak",
