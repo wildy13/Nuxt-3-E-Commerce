@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Dropdown -->
-    <div>
+    <div class="flex justify-between">
       <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }">
         <UButton
           color="white"
@@ -9,6 +9,12 @@
           trailing-icon="i-heroicons-chevron-down-20-solid"
         />
       </UDropdown>
+            <UInput
+        icon="i-heroicons-magnifying-glass-20-solid"
+        placeholder="Search..."
+        v-model="search"
+        trailing
+      />
     </div>
     <!-- Card -->
     <div
@@ -53,16 +59,23 @@ const categoryItem = computed(() => {
 });
 
 const filterProducts = computed(() => {
-  if (category.value === "") {
-    return productStore.items;
+  if (search.value) {
+    return productStore.items.filter((item) => {
+      return (
+        item.name.toLowerCase().includes(search.value.toLowerCase()) ||
+        (item.categoryId == category.value && category.value !== "")
+      );
+    });
   } else {
-    return productStore.items.filter((item) => 
-      {
-        if(item.categoryId === category.value)  {
-          return productStore.items
-        }
-      }
-    );
+    if (category.value === "") {
+      return productStore.items; 
+    } else {
+      return productStore.items.filter((item) => {
+        return item.categoryId == category.value;
+      });
+    }
   }
 });
+
+
 </script>

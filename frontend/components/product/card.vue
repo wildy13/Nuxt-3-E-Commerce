@@ -50,7 +50,7 @@
             @mouseenter="showText = false"
           >
             <div>{{ product.price }}</div>
-            <UButton>
+            <UButton variant="link" color="white" size="xl">
               <UIcon name="i-heroicons-shopping-bag" />
             </UButton>
           </div>
@@ -72,11 +72,11 @@
       Icon,
     },
     props: {
-      product: Object, // Menerima prop 'product' dari komponen Product
+      product: Object, 
     },
     data() {
       return {
-        showText: false, // Menambahkan data showText untuk mengontrol tampilan teks saat hover
+        showText: false, 
       };
     },
   };
