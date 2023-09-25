@@ -10,10 +10,10 @@ const sequelize = new Sequelize(
     {
         host : 'localhost',
         dialect : process.env.DB_DIALECT,
+        dialectModule: mysql2,
         dialectOptions: {
             dateStrings: true,
             typeCast: true,
-            dialectModule: "mysql2"
         },
         pool: {
             max: 10,
