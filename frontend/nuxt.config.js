@@ -64,4 +64,5 @@ export default defineNuxtConfig({
 
     globalAppMiddleware: true,
   },
+  ssr: false
 });

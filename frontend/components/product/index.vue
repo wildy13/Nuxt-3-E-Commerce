@@ -7,6 +7,7 @@
           color="white"
           label="Options"
           trailing-icon="i-heroicons-chevron-down-20-solid"
+          :ui="{color:{white:{solid:'bg-gray-900 hover:bg-gray-800/50 disabled:bg-gray-900 focus-visible:ring-primary-400 text-white ring-gray-700'}}}"
         />
       </UDropdown>
       <!-- Search -->
@@ -45,7 +46,7 @@
           label: 'Next',
           color: 'gray',
         }"
-        :ui="{base:'bg-gray-900 text-gray-200'}"
+        :ui="{default:{prevButton:{color:'gray'}, nextButton:{color:'gray'}}}"
         @page-change="handlePageChange"
       />
     </div>
