@@ -9,7 +9,8 @@
           trailing-icon="i-heroicons-chevron-down-20-solid"
         />
       </UDropdown>
-            <UInput
+      <!-- Search -->
+      <UInput
         icon="i-heroicons-magnifying-glass-20-solid"
         placeholder="Search..."
         v-model="search"
@@ -20,9 +21,30 @@
     <div
       class="flex flex-col justify-center items-center md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center"
     >
-      <div v-for="product in filterProducts" :key="product.id">
+      <div v-for="product in displayedProducts" :key="product.id">
         <ProductCard :product="product" />
       </div>
+    </div>
+    <!-- Pagination -->
+    <div>
+      <UPagination
+        v-model="currentPage"
+        :page-count="pageCount"
+        :current-page.sync="currentPage"
+        :total="filterProducts.length"
+        :prev-button="{
+          icon: 'i-heroicons-arrow-small-left-20-solid',
+          label: 'Prev',
+          color: 'gray',
+        }"
+        :next-button="{
+          icon: 'i-heroicons-arrow-small-right-20-solid',
+          trailing: true,
+          label: 'Next',
+          color: 'gray',
+        }"
+        @page-change="handlePageChange"
+      />
     </div>
   </div>
 </template>
@@ -31,6 +53,9 @@
 import { ref, computed, onMounted } from "vue";
 import { useProductStore } from "../../stores/products";
 import { useCategoryStore } from "../../stores/category";
+
+const itemPerPage = ref(3);
+const currentPage = ref(1); 
 
 const search = ref("");
 const category = ref("");
@@ -57,6 +82,18 @@ const categoryItem = computed(() => {
   ]);
 });
 
+const pageCount = computed(() => {
+  const totalProducts = filterProducts.value.length;
+  return Math.max(itemPerPage.value, Math.ceil(totalProducts / itemPerPage.value));
+});
+
+
+const displayedProducts = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemPerPage.value;
+  const endIndex = startIndex + itemPerPage.value;
+  return filterProducts.value.slice(startIndex, endIndex);
+});
+
 const filterProducts = computed(() => {
   if (search.value) {
     return productStore.items.filter((item) => {
@@ -67,7 +104,7 @@ const filterProducts = computed(() => {
     });
   } else {
     if (category.value === "") {
-      return productStore.items; 
+      return productStore.items;
     } else {
       return productStore.items.filter((item) => {
         return item.categoryId == category.value;
@@ -77,4 +114,7 @@ const filterProducts = computed(() => {
 });
 
 
+const handlePageChange = (newPage) => {
+  currentPage.value = newPage;
+};
 </script>
