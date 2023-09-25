@@ -28,8 +28,7 @@ import { useCategoryStore } from "../../stores/category";
 
 const search = ref("");
 const category = ref("");
-const filteredByCategory = ref([]);
-
+const filteredByCategory = ref([]); 
 const productStore = useProductStore();
 const categoryStore = useCategoryStore();
 
@@ -47,7 +46,7 @@ const categoryItem = computed(() => {
     {
       label: item.name,
       click: () => {
-        category.value = item.name;
+        category.value = item.id;
       },
     },
   ]);
@@ -57,9 +56,12 @@ const filterProducts = computed(() => {
   if (category.value === "") {
     return productStore.items;
   } else {
-    return productStore.items.map(
-      (product) =>
-      product.category.toLowerCase() === category.value.toLowerCase()
+    return productStore.items.filter((item) => 
+      {
+        if(item.categoryId === category.value)  {
+          return productStore.items
+        }
+      }
     );
   }
 });
