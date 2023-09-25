@@ -4,6 +4,6 @@
         <div class="container mx-auto pt-24">
             <slot />
         </div>
-        <Footer />
+        <Footer class="mt-40" />
     </div>
 </template>
