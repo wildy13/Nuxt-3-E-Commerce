@@ -24,6 +24,7 @@ const sequelize = new Sequelize(
 )
 
 const config = {
+    dialectModule: mysql2,
     host : process.env.BACKEND_HOST,
     port : process.env.BACKEND_PORT,
     secret: { session: process.env.SESSION_KEY },
