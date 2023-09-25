@@ -15,7 +15,7 @@
         placeholder="Search..."
         v-model="search"
         color="white"
-        :ui="{color:{white:{outline:'bg-gray-900'}}}"
+        :ui="{color:{white:{outline:'bg-gray-900 text-white'}}}"
         trailing
       />
     </div>
