@@ -5,7 +5,7 @@
       <UDropdown
         :items="categoryItem"
         :popper="{ placement: 'bottom-start' }"
-        :ui="{background:'bg-gray-800',ring:'ring-gray-700', divide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
+        :ui="{container:'z-[1]',background:'bg-gray-800',ring:'ring-gray-700', divide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
       >
         <UButton
           color="white"
