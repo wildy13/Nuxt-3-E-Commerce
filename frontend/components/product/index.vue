@@ -14,6 +14,8 @@
         icon="i-heroicons-magnifying-glass-20-solid"
         placeholder="Search..."
         v-model="search"
+        color="white"
+        :ui="{color:{white:{outline:'bg-gray-900'}}}"
         trailing
       />
     </div>

@@ -14,6 +14,7 @@
                 <UInput
                   v-model="state.username"
                   placeholder="Username..."
+                  :ui="{color:{white:{outline:'bg-gray-900'}}}"
                 />
               </UFormGroup>
               <UFormGroup label="Password" name="password" class="p-1">
@@ -22,6 +23,8 @@
                   v-model="state.password"
                   type="password"
                   placeholder="Password..."
+                  color="white"
+                  :ui="{color:{white:{outline:'bg-gray-900'}}}"
                   trailing
                 />
                 <UButton
