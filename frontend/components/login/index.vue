@@ -10,21 +10,23 @@
               :schema="schema"
             @submit.prevent="submit"
             >
-              <UFormGroup label="Username" name="username" class="p-1">
+              <UFormGroup name="username" class="p-1">
+                <div class="font-medium text-sm">username</div>
                 <UInput
                   v-model="state.username"
                   placeholder="Username..."
-                  :ui="{color:{white:{outline:'bg-gray-900 text-white'}}}"
+                  :ui="{color:{white:{outline:'bg-gray-900 text-white ring-gray-700 focus:ring-primary-400'}}}"
                 />
               </UFormGroup>
-              <UFormGroup label="Password" name="password" class="p-1">
+              <UFormGroup  name="password" class="p-1">
+                <div class="font-medium text-sm">password</div>
                 <UInput
                   id="password-input"
                   v-model="state.password"
                   type="password"
                   placeholder="Password..."
                   color="white"
-                  :ui="{color:{white:{outline:'bg-gray-900 text-white'}}}"
+                  :ui="{color:{white:{outline:'bg-gray-900 text-white ring-gray-700 focus:ring-primary-400'}}}"
                   trailing
                 />
                 <UButton
