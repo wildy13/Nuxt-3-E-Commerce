@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Dropdown -->
-    <div class="flex justify-between">
+    <div class="flex justify-between mx-4">
       <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }">
         <UButton
           color="white"
@@ -54,7 +54,7 @@ import { ref, computed, onMounted } from "vue";
 import { useProductStore } from "../../stores/products";
 import { useCategoryStore } from "../../stores/category";
 
-const itemPerPage = ref(3);
+const itemPerPage = ref(6);
 const currentPage = ref(1); 
 
 const search = ref("");
