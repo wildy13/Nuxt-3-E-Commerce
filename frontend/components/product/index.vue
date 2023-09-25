@@ -18,7 +18,7 @@
     </div>
     <!-- Card -->
     <div
-      class="flex flex-col justify-center items-center md:grid md:grid-cols-2 xl:grid-cols-3"
+      class="flex flex-col justify-center items-center md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center"
     >
       <div v-for="product in filterProducts" :key="product.id">
         <ProductCard :product="product" />
@@ -34,7 +34,6 @@ import { useCategoryStore } from "../../stores/category";
 
 const search = ref("");
 const category = ref("");
-const filteredByCategory = ref([]); 
 const productStore = useProductStore();
 const categoryStore = useCategoryStore();
 

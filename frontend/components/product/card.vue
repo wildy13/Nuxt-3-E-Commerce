@@ -56,12 +56,6 @@
           </div>
         </template>
       </UCard>
-      <div
-        v-if="showText"
-        class="absolute z-10 top-10 left-80 bg-gray-900 p-1 rounded-lg w-80 h-[400px]"
-      >
-        {{ product.imageDescription }}
-      </div>
     </div>
   </template>
   
@@ -73,11 +67,6 @@
     },
     props: {
       product: Object, 
-    },
-    data() {
-      return {
-        showText: false, 
-      };
     },
   };
   </script>
