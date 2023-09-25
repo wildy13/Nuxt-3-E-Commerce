@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const Sequelize = require('sequelize');
 const mysql2 = require('mysql2')
+
 const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USERNAME,
@@ -9,10 +10,10 @@ const sequelize = new Sequelize(
     {
         host : 'localhost',
         dialect : process.env.DB_DIALECT,
-        dialectModule: mysql2,
         dialectOptions: {
             dateStrings: true,
             typeCast: true,
+            dialectModule: mysql2
         },
         pool: {
             max: 10,
@@ -24,7 +25,6 @@ const sequelize = new Sequelize(
 )
 
 const config = {
-    dialectModule: mysql2,
     host : process.env.BACKEND_HOST,
     port : process.env.BACKEND_PORT,
     secret: { session: process.env.SESSION_KEY },
