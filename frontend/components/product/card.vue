@@ -8,7 +8,7 @@
           <div class="flex justify-center">
             <img
               :src="product.image"
-              class="w-full h-56 rounded-md"
+              class="w-56 h-56 rounded-md"
               @mouseenter="showText = true"
               @mouseleave="showText = false"
             />
