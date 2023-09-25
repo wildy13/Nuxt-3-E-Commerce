@@ -5,7 +5,7 @@
       <UDropdown
         :items="categoryItem"
         :popper="{ placement: 'bottom-start' }"
-        :ui="{background:'bg-gray-800',ring:'ring-gray-700', devide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
+        :ui="{background:'bg-gray-800',ring:'ring-gray-700', divide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
       >
         <UButton
           color="white"
@@ -46,6 +46,7 @@
         :page-count="pageCount"
         :current-page.sync="currentPage"
         :total="filterProducts.length"
+        :active-button="{ variant: 'solid' }"
         :prev-button="{
           icon: 'i-heroicons-arrow-small-left-20-solid',
           label: 'Prev',
@@ -59,8 +60,8 @@
         }"
         :ui="{
           default: {
-            prevButton: { color: {gray:{solid:'ring-gray-700  text-gray-200 bg-gray-800 hover:bg-gray-700/50 disabled:bg-gray-800 focus-visible:ring-primary-400'}} },
-            nextButton: { color: {gray:{solid:'ring-gray-700  text-gray-200 bg-gray-800 hover:bg-gray-700/50 disabled:bg-gray-800 focus-visible:ring-primary-400'}} },
+            prevButton: { variant: {solid:'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400'} },
+            nextButton: { variant: {solid:'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400'} },
           },
         }"
         @page-change="handlePageChange"
