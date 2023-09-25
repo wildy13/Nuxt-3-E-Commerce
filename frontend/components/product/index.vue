@@ -2,12 +2,23 @@
   <div>
     <!-- Dropdown -->
     <div class="flex justify-between mx-4">
-      <UDropdown :items="categoryItem" :popper="{ placement: 'bottom-start' }" :ui="{background:'bg-gray-800', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}">
+      <UDropdown
+        :items="categoryItem"
+        :popper="{ placement: 'bottom-start' }"
+        :ui="{background:'bg-gray-800',ring:'ring-gray-700', devide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
+      >
         <UButton
           color="white"
           label="Options"
           trailing-icon="i-heroicons-chevron-down-20-solid"
-          :ui="{color:{white:{solid:'bg-gray-900 hover:bg-gray-800/50 disabled:bg-gray-900 focus-visible:ring-primary-400 text-white ring-gray-700'}}}"
+          :ui="{
+            color: {
+              white: {
+                solid:
+                  'bg-gray-900 hover:bg-gray-800/50 disabled:bg-gray-900 focus-visible:ring-primary-400 text-white ring-gray-700',
+              },
+            },
+          }"
         />
       </UDropdown>
       <!-- Search -->
@@ -16,7 +27,7 @@
         placeholder="Search..."
         v-model="search"
         color="white"
-        :ui="{color:{white:{outline:'bg-gray-900 text-white'}}}"
+        :ui="{ color: { white: { outline: 'bg-gray-900 text-white' } } }"
         trailing
       />
     </div>
@@ -46,7 +57,12 @@
           label: 'Next',
           color: 'gray',
         }"
-        :ui="{default:{prevButton:{color:'gray'}, nextButton:{color:'gray'}}}"
+        :ui="{
+          default: {
+            prevButton: { color: {gray:{solid:'ring-gray-700  text-gray-200 bg-gray-800 hover:bg-gray-700/50 disabled:bg-gray-800 focus-visible:ring-primary-400'}} },
+            nextButton: { color: {gray:{solid:'ring-gray-700  text-gray-200 bg-gray-800 hover:bg-gray-700/50 disabled:bg-gray-800 focus-visible:ring-primary-400'}} },
+          },
+        }"
         @page-change="handlePageChange"
       />
     </div>
@@ -59,7 +75,7 @@ import { useProductStore } from "../../stores/products";
 import { useCategoryStore } from "../../stores/category";
 
 const itemPerPage = ref(6);
-const currentPage = ref(1); 
+const currentPage = ref(1);
 
 const search = ref("");
 const category = ref("");
@@ -88,9 +104,11 @@ const categoryItem = computed(() => {
 
 const pageCount = computed(() => {
   const totalProducts = filterProducts.value.length;
-  return Math.max(itemPerPage.value, Math.ceil(totalProducts / itemPerPage.value));
+  return Math.max(
+    itemPerPage.value,
+    Math.ceil(totalProducts / itemPerPage.value)
+  );
 });
-
 
 const displayedProducts = computed(() => {
   const startIndex = (currentPage.value - 1) * itemPerPage.value;
@@ -116,7 +134,6 @@ const filterProducts = computed(() => {
     }
   }
 });
-
 
 const handlePageChange = (newPage) => {
   currentPage.value = newPage;
