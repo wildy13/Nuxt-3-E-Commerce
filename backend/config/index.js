@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
         dialectOptions: {
             dateStrings: true,
             typeCast: true,
-            dialectModule: mysql2
+            dialectModule: "mysql2"
         },
         pool: {
             max: 10,
