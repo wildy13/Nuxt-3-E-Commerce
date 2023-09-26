@@ -2,7 +2,6 @@
   <div>
     <!-- Dropdown -->
     <div class="flex justify-between mx-4">
-      {{  category }}
       <UDropdown
         :items="categoryItem"
         :popper="{ placement: 'bottom-start' }"
