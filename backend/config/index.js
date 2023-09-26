@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     process.env.MYSQL_CONNECT_URI,
     {
         host: process.env.BACKEND_HOST,
-        dialect: 'mysql2',
+        dialect: 'mysql',
         dialectModule: mysql2,
     }
 )
