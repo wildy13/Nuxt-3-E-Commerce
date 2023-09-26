@@ -2,6 +2,7 @@
   <div>
     <!-- Dropdown -->
     <div class="flex justify-between mx-4">
+      {{  category }}
       <UDropdown
         :items="categoryItem"
         :popper="{ placement: 'bottom-start' }"
@@ -151,7 +152,7 @@ const filterProducts = computed(() => {
       );
     });
   } else {
-    if (category.value === "") {
+    if (category.value === 3) {
       return productStore.items;
     } else {
       return productStore.items.filter((item) => {

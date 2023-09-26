@@ -9,7 +9,7 @@
       />
       <div>Welcome Back {{ data?.user?.username }}</div>
     </div>
-    <USlideover v-model="isOpen" :overlay="false" :ui="{ background: 'bg-gray-900  text-white'}">  
+    <USlideover v-model="isOpen" :overlay="false" :ui="{ background: 'bg-gray-900  text-white', base: 'w-2/4 sm:w-full'}">  
       <UButton @click="logout" label="Sign Out" icon="i-heroicons-arrow-right-on-rectangle" variant="link" color="white" class="absolute bottom-0" />
     </USlideover>
   </div>
