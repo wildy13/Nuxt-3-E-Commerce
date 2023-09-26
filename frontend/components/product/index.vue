@@ -5,7 +5,13 @@
       <UDropdown
         :items="categoryItem"
         :popper="{ placement: 'bottom-start' }"
-        :ui="{container:'z-[1]',background:'bg-gray-800',ring:'ring-gray-700', divide:'divide-gray-700', item:{active:'bg-gray-900 text-white',  inactive:'text-gray-200'}}"
+        :ui="{
+          container: 'z-[1]',
+          background: 'bg-gray-800',
+          ring: 'ring-gray-700',
+          divide: 'divide-gray-700',
+          item: { active: 'bg-gray-900 text-white', inactive: 'text-gray-200' },
+        }"
       >
         <UButton
           color="white"
@@ -21,13 +27,17 @@
           }"
         />
       </UDropdown>
+      
       <!-- Search -->
       <UInput
         icon="i-heroicons-magnifying-glass-20-solid"
         placeholder="Search..."
         v-model="search"
         color="white"
-        :ui="{ color: { white: { outline: 'bg-gray-900 text-white' } } }"
+        :ui="{
+          icon: { bases: 'text-gray-500', color: 'text-white' },
+          color: { white: { outline: 'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400' } },
+        }"
         trailing
       />
     </div>
@@ -60,8 +70,18 @@
         }"
         :ui="{
           default: {
-            prevButton: { variant: {solid:'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400'} },
-            nextButton: { variant: {solid:'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400'} },
+            prevButton: {
+              variant: {
+                solid:
+                  'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400',
+              },
+            },
+            nextButton: {
+              variant: {
+                solid:
+                  'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400',
+              },
+            },
           },
         }"
         @page-change="handlePageChange"
