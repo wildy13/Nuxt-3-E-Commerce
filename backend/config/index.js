@@ -5,6 +5,9 @@ const mysql2 = require('mysql2')
 
 const sequelize = new Sequelize(
     process.env.MYSQL_CONNECT_URI,
+    {
+        dialectModule: mysql2,
+    }
 )
 
 const config = {
