@@ -4,7 +4,10 @@ const jwt = require('@fastify/jwt');
 const router = require('./router');
 
 const fastify = Fastify();
-fastify.register(fastifyCors);
+fastify.register(fastifyCors, {
+  origin: '*',
+  methods: 'GET, PUT, POST, DELETE',
+});
   fastify.register(jwt, { secret: process.env.SESSION_KEY, sign: { expiresIn: '8h' } });
 
   fastify.addHook('onRequest', async (req, res) => {
