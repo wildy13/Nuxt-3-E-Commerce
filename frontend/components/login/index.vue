@@ -15,14 +15,6 @@
               <UInput
                 v-model="state.username"
                 placeholder="Username..."
-                :ui="{
-                  color: {
-                    white: {
-                      outline:
-                        'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400',
-                    },
-                  },
-                }"
               />
             </UFormGroup>
             <UFormGroup name="password" class="p-1">
@@ -35,14 +27,6 @@
                     :type="passwordVisible ? 'text' : 'password'"
                     placeholder="Password..."
                     color="white"
-                    :ui="{
-                      color: {
-                        white: {
-                          outline:
-                            'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400',
-                        },
-                      },
-                    }"
                     trailing
                   />
                   <UButton
@@ -65,14 +49,6 @@
               <UButton
                 type="submit"
                 color="white"
-                :ui="{
-                  color: {
-                    white: {
-                      solid:
-                        'ring-gray-700 text-white  bg-gray-900 hover:bg-gray-800/50 disabled:bg-gray-900 focus-visible:ring-primary-400',
-                    },
-                  },
-                }"
               >
                 Submit
               </UButton>

@@ -7,24 +7,13 @@
         :popper="{ placement: 'bottom-start' }"
         :ui="{
           container: 'z-[1]',
-          background: 'bg-gray-800',
-          ring: 'ring-gray-700',
           divide: 'divide-transparent ',
-          item: { active: 'bg-gray-900 text-white', inactive: 'text-gray-200' },
         }"
       >
         <UButton
           color="white"
           label="Options"
           trailing-icon="i-heroicons-chevron-down-20-solid"
-          :ui="{
-            color: {
-              white: {
-                solid:
-                  'bg-gray-900 hover:bg-gray-800/50 disabled:bg-gray-900 focus-visible:ring-primary-400 text-white ring-gray-700',
-              },
-            },
-          }"
         />
       </UDropdown>
 
@@ -36,19 +25,13 @@
         color="white"
         :ui="{
           icon: { bases: 'text-gray-500', color: 'text-white' },
-          color: {
-            white: {
-              outline:
-                'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400',
-            },
-          },
         }"
         trailing
       />
     </div>
     <!-- Card -->
     <div
-      class="flex flex-col justify-center items-center md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-center items-center  "
     >
       <div v-for="product in displayedProducts" :key="product.id">
         <ProductCard :product="product" />

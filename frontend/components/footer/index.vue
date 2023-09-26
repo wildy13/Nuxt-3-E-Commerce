@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-2 bg-gradient-to-tr from-gray-900 to-slate-500"
+    class="p-5 bg-slate-200 border-t-2 border-slate-400"
   >
     <div class="flex justify-between items-center text-sm">
       <div class="flex gap-4">
@@ -9,16 +9,16 @@
       </div>
       <div class="flex gap-4">
         <a href="">
-            <Icon icon="mdi:instagram" class="h-4 w-4 md:h-6 md:w-6" />
+            <Icon icon="mdi:instagram" class="h-6 w-6" />
         </a>
         <a href="">
-            <Icon icon="mdi:facebook" class="h-4 w-4 md:h-6 md:w-6" />
+            <Icon icon="mdi:facebook" class="h-6 w-6" />
         </a>
         <a href="">
-            <Icon icon="mdi:whatsapp" class="h-4 w-4 md:h-6 md:w-6" />
+            <Icon icon="mdi:whatsapp" class="h-6 w-6" />
         </a>
         <a href="">
-            <Icon icon="mdi:email" class="h-4 w-4 md:h-6 md:w-6" />
+            <Icon icon="mdi:email" class="h-6 w-6" />
         </a>
       </div>
     </div>

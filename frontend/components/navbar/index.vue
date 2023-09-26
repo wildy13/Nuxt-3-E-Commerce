@@ -1,8 +1,8 @@
 <template>
-  <div class="p-2 fixed top-0 w-full z-10 bg-gradient-to-r from-gray-900 to-slate-500">
-    <div class="flex justify-between items-center mx-4">
-      <div>This is Logo</div>
-      <div class="flex items-center gap-4">
+  <div class="p-4 fixed top-0 w-full z-10 bg-gradient-to-tr from-green-500 to-emerald-500">
+    <div class="flex justify-between items-center gap-10">
+      <div class="text-white">This is Logo</div>
+      <div class="flex items-center gap-4 text-white">
         <nuxt-link to="/" exact active-class="text-slate-800">
           <div class="hover:text-slate-800 cursor-pointer">Home</div>
         </nuxt-link>
