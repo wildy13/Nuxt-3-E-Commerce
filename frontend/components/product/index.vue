@@ -9,7 +9,7 @@
           container: 'z-[1]',
           background: 'bg-gray-800',
           ring: 'ring-gray-700',
-          divide: 'divide-gray-700',
+          divide: 'divide-transparent ',
           item: { active: 'bg-gray-900 text-white', inactive: 'text-gray-200' },
         }"
       >
@@ -27,7 +27,7 @@
           }"
         />
       </UDropdown>
-      
+
       <!-- Search -->
       <UInput
         icon="i-heroicons-magnifying-glass-20-solid"
@@ -36,7 +36,12 @@
         color="white"
         :ui="{
           icon: { bases: 'text-gray-500', color: 'text-white' },
-          color: { white: { outline: 'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400' } },
+          color: {
+            white: {
+              outline:
+                'bg-gray-900 text-white ring-gray-700 focus:ring-gray-400',
+            },
+          },
         }"
         trailing
       />
