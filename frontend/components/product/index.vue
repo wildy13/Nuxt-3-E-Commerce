@@ -151,7 +151,7 @@ const filterProducts = computed(() => {
       );
     });
   } else {
-    if (category.value === "3") {
+    if (category.value === "") {
       return productStore.items;
     } else {
       return productStore.items.filter((item) => {
