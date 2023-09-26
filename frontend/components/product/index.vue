@@ -151,11 +151,15 @@ const filterProducts = computed(() => {
       );
     });
   } else {
-    if (category.value === 3) {
+    if (category.value === "") {
       return productStore.items;
     } else {
       return productStore.items.filter((item) => {
-        return item.categoryId == category.value;
+        if(category.value === 3) {
+          return productStore.items
+        }else {
+          return item.categoryId == category.value;
+        }
       });
     }
   }
