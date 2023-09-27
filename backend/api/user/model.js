@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { genSaltSync, hashSync, compareSync } = require('bcrypt');
-const { sequelize } = require('../../config')
+const { sequelize } = require('../../config');
+const role = require('../role/model');
 
 const user = sequelize.define(
     'user', {
@@ -26,6 +27,15 @@ const user = sequelize.define(
             set(value) {
                 const salt = genSaltSync(10);
                 this.setDataValue('password', hashSync(value, salt));
+            }
+        },
+
+        roleId : {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            References: {
+                model:  role,
+                key: 'id'
             }
         }
     },
