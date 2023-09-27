@@ -1,4 +1,3 @@
-const category = require("../category/model");
 const Products= require("./model");
 
 const get = async (req,res) => {
@@ -14,10 +13,6 @@ const get = async (req,res) => {
                 'price',
                 'image'
             ],
-            includes: [{
-                model:category,
-                attributes: ['name'],
-            }]
         });
         res.status(200).send(product);
     } catch (error) {

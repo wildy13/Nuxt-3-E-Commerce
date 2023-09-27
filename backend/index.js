@@ -22,10 +22,6 @@ fastify.register(fastifyCors, {
 fastify.register(router); 
 const { sequelize, config: { host, port } } = require('./config');
 
-const User = require('./api/user/model');
-const products = require('./api/product/model');
-const category = require('./api/category/model');
-
 const connect = async () => {
     try {
         await sequelize.authenticate();
@@ -38,7 +34,6 @@ const connect = async () => {
 
 const start = async () => {
     try {
-        //products.sync({force:true})
         fastify.listen ({ port, host }, () => console.log(`Server Running on Port ${port}`));
         await connect();
     } catch (error) {

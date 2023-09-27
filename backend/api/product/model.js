@@ -15,8 +15,13 @@ const products = sequelize.define(
             type:  DataTypes.STRING,
             allowNull: false,
         },
-        imageDescription : {
-            type:  DataTypes.STRING,
+        description : {
+            type:  DataTypes.TEXT,
+            allowNull: false
+        },
+
+        stock_quantity : {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
 
@@ -34,7 +39,7 @@ const products = sequelize.define(
         },
 
         price: {
-            type: DataTypes.STRING,
+            type: DataTypes.DECIMAL(12,2),
             allowNull: false
         },
         image: {

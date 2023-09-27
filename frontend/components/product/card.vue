@@ -16,7 +16,7 @@
             @mouseenter="showText = false"
           >
             <div>{{ product.price }}</div>
-            <UButton variant="link" color="white" size="xl">
+            <UButton @click="addToChart(product)" variant="link" color="white" size="xl">
               <UIcon name="i-heroicons-shopping-bag" />
             </UButton>
           </div>
@@ -25,15 +25,7 @@
     </div>
   </template>
   
-  <script>
-  import { Icon } from "@iconify/vue";
-  export default {
-    components: {
-      Icon,
-    },
-    props: {
-      product: Object, 
-    },
-  };
+  <script setup>
+  const { product } = defineProps(["product"]);
   </script>
   

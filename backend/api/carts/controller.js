@@ -1,15 +1,15 @@
-const Category = require("./model");
+const Cart = require("./model");
 
 const get = async (req,res) => {
     try {
-        const category = await Category.findAll({
+        const cart = await Cart.findAll({
             attributes:
             [
                 'id',
-                'name',
+                'userId',
             ],
         });
-        res.status(200).send(category);
+        res.status(200).send(cart);
     } catch (error) {
         res.status(500).send(error);
     }
@@ -19,15 +19,15 @@ const get = async (req,res) => {
 const create = async (req,res) => {
     try {
         const {
-            name,
+            userId,
         } =  req.body
 
-        const newCategory = new Category({
-            name,
+        const newCart = new Cart({
+            userId,
         })
 
-        const category = await newCategory.save()
-        res.status(200).send(category);
+        const cart = await newCart.save()
+        res.status(200).send(cart);
     } catch (error) {
         res.status(500).send(error)
     }
