@@ -66,6 +66,9 @@
             <div class="p-1 flex justify-between items-center">
               <UButton v-if="loading  ==  true" loading id="submit" type="submit" color="white"> Submit </UButton>              
               <UButton v-else type="submit" color="white"> Submit </UButton>
+              <NuxtLink to="/">
+                <div class="text-sm">Back to home?</div>
+              </NuxtLink>
             </div>
           </UForm>
         </div>
