@@ -21,6 +21,15 @@ const user = sequelize.define(
             }
         },
 
+        roleId : {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model:  role,
+                key: 'id'
+            }
+        },
+
         password : {
             type : DataTypes.STRING,
             allowNull: false, 
@@ -30,14 +39,7 @@ const user = sequelize.define(
             }
         },
 
-        roleId : {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            References: {
-                model:  role,
-                key: 'id'
-            }
-        }
+
     },
     {
         tableName: 'tbl_user'

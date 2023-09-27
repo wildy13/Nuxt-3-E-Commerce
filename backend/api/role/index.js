@@ -1,6 +1,6 @@
 const { create, get } = require("./controller");
 
-const product = async (fastify) => {
+const role = async (fastify) => {
     fastify.route({
       method: "POST",
       url: "/",
@@ -14,4 +14,4 @@ const product = async (fastify) => {
     });
   };
   
-  module.exports = product;
+  module.exports = role;
