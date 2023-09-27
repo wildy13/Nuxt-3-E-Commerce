@@ -7,7 +7,8 @@ const get = async (req,res) => {
             [
                 'id',
                 'name',
-                'imageDescription',
+                'description',
+                'stock_quantity',
                 'categoryId',
                 'rating',
                 'price',
@@ -25,7 +26,8 @@ const create = async (req,res) => {
     try {
         const {
             name,
-            imageDescription,
+            description,
+            stock_quantity,
             categoryId,
             price,
             image,
@@ -34,7 +36,8 @@ const create = async (req,res) => {
 
         const newProduct = new Products({
             name,
-            imageDescription,
+            description,
+            stock_quantity,
             categoryId,
             price,
             image,

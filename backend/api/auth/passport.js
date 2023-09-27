@@ -7,6 +7,7 @@ const localAuthenticate = async (User, username, password, done) => {
       'id',
       'username',
       'password',
+      'roleId'
     ],
     where: { username },
   });

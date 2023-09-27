@@ -11,11 +11,11 @@ const authLocal = (req, res) => new Promise((resolve, reject) => {
     }
 
     const {
-      id, username,
+      id, username,roleId
     } = user;
 
     const token = await res.jwtSign({
-      id, username
+      id, username,roleId
     });
 
     resolve({ token });
@@ -30,7 +30,7 @@ const Login = async (req, res) => {
         const token = await authLocal(req,res);
         res.status(200).send(token)
     } catch (error) {
-        console.log(error)
+      res.status(401).send(new Error(error.message));
     }
 }
 

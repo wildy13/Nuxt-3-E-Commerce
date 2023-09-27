@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 fixed top-0 w-full z-10 bg-gradient-to-tr from-green-500 to-emerald-500">
+  <div class="p-4 fixed top-0 w-full z-10 bg-gradient-to-tr from-blue-400 to-indigo-600">
     <div class="flex justify-between items-center gap-10">
       <div class="text-white">This is Logo</div>
       <div class="flex items-center gap-4 text-white">

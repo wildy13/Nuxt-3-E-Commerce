@@ -44,7 +44,7 @@
         :page-count="pageCount"
         :current-page.sync="currentPage"
         :total="filterProducts.length"
-        :active-button="{ variant: 'solid' }"
+        :active-button="{ variant: 'subtle' }"
         :prev-button="{
           icon: 'i-heroicons-arrow-small-left-20-solid',
           label: 'Prev',
@@ -55,22 +55,6 @@
           trailing: true,
           label: 'Next',
           color: 'gray',
-        }"
-        :ui="{
-          default: {
-            prevButton: {
-              variant: {
-                solid:
-                  'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400',
-              },
-            },
-            nextButton: {
-              variant: {
-                solid:
-                  'text-gray-900 bg-{color}-400 hover:bg-{color}-500 disabled:bg-{color}-400 focus-visible:outline-{color}-400',
-              },
-            },
-          },
         }"
         @page-change="handlePageChange"
       />
@@ -83,7 +67,7 @@ import { ref, computed, onMounted } from "vue";
 import { useProductStore } from "../../stores/products";
 import { useCategoryStore } from "../../stores/category";
 
-const itemPerPage = ref(6);
+const itemPerPage = ref(18);
 const currentPage = ref(1);
 
 const search = ref("");
@@ -138,11 +122,7 @@ const filterProducts = computed(() => {
       return productStore.items;
     } else {
       return productStore.items.filter((item) => {
-        if(category.value === 3) {
-          return productStore.items
-        }else {
-          return item.categoryId == category.value;
-        }
+        return item.categoryId == category.value;
       });
     }
   }

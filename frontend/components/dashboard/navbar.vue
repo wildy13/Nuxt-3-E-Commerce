@@ -13,7 +13,7 @@
       <UCard class="flex flex-col flex-1" :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-700 dark:divide-gray-800' }">
         <template #header>
           <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold leading-6 text-white">
+            <h3 class="text-base lg:text-xl font-semibold leading-6 text-white">
               DASHBOARD | ADMIN
             </h3>
             <UButton color="gray" variant="link" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />

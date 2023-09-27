@@ -1,9 +1,10 @@
 <template>
   <div class="h-screen">
-    <DashboardNavbar/>
+    <DashboardNavbar v-if="data.user.userId" />
+    <div v-else>Ini dashboard User</div>
   </div>
 </template>
 
 <script setup>
-    const isOpen = ref(false);
+  const { data } = useAuth();
 </script>

@@ -1,7 +1,10 @@
 <template>
-  <div class="container mx-auto h-screen flex justify-center items-center">
-    <div class="w-[75%] md:w-[25%]">
+  <div
+    class="bg-gradient-to-r from-blue-400 to-indigo-600 min-h-screen flex justify-center items-center"
+  >
+    <div class="mx-4 w-96 lg:w-[500px] bg-white p-10 rounded-md">
       <div>
+        <ErrorHandler v-if="errorMessage" :error="errorMessage" />
         <div class="text-center text-2xl">Sign In</div>
         <div>
           <UForm
@@ -12,10 +15,7 @@
           >
             <UFormGroup name="username" class="p-1">
               <div class="font-medium text-sm">username</div>
-              <UInput
-                v-model="state.username"
-                placeholder="Username..."
-              />
+              <UInput v-model="state.username" placeholder="Username..." />
             </UFormGroup>
             <UFormGroup name="password" class="p-1">
               <div class="font-medium text-sm">password</div>
@@ -46,15 +46,17 @@
               </div>
             </UFormGroup>
             <div class="p-1 flex justify-between items-center">
-              <UButton
-                type="submit"
-                color="white"
-              >
-                Submit
-              </UButton>
+              <UButton type="submit" color="white"> Submit </UButton>
               <NuxtLink to="/">
                 <div class="text-sm">Back to home?</div>
               </NuxtLink>
+            </div>
+            <div class="flex gap-1 text-xs sm:text-sm md:text-base lg:text-lg">
+              <div>Don't have an account yet?</div>
+              <nuxt-link to="/sign-up" class="underline underline-offset-1"
+                >Sign up</nuxt-link
+              >
+              <span>now!</span>
             </div>
           </UForm>
         </div>
@@ -74,6 +76,8 @@ const schema = Yup.object().shape({
     .required('Required')
 });
 
+const errorMessage = ref(null);
+const loading = ref(false)
 const form = ref();
 const state = ref({
   username: 'admin',
@@ -95,11 +99,11 @@ const submit = async () => {
     await form.value?.validate();
 
     const { username, password } = state.value;
-    await signIn('credentials', { username, password, callbackUrl: '/dashboard' });
+    await signIn('credentials', { username, password,  redirect: true });
   } catch (error) {
-    console.log(error)
+    errorMessage.value = error?.response._data.message; 
   }
 
-  return null;
+  return navigateTo("/dashboard")
 };
 </script>

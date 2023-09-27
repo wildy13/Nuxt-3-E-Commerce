@@ -46,6 +46,10 @@ export default defineNuxtConfig({
           path: "/api/auth/login",
           method: "post",
         },
+        signUp: {
+          path: "/api/user/",
+          method: "post",
+        },
         signOut: {
           path: "/api/auth/logout",
           method: "post",
