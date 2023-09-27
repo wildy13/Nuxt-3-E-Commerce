@@ -4,14 +4,16 @@ const createUser = async (req, res) => {
     const {
         username,
         password,
-        confPassword
+        confPassword,
+        roleId
     } = req.body
 
     try {
         const newUser = new User({
             username,
             password,
-            confPassword
+            confPassword,
+            roleId
         })
 
         const user = await newUser.save();
