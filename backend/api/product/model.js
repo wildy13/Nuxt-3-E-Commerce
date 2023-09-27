@@ -39,7 +39,7 @@ const products = sequelize.define(
         },
 
         price: {
-            type: DataTypes.DECIMAL(12,2),
+            type: DataTypes.DECIMAL(12,3),
             allowNull: false
         },
         image: {

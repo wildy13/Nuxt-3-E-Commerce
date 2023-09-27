@@ -36,7 +36,7 @@ const cart_items = sequelize.define(
         },
 
         price: {
-            type: DataTypes.DECIMAL(12,2)
+            type: DataTypes.DECIMAL(12,3)
         }
     },
     {
