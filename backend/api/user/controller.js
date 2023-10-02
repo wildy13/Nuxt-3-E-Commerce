@@ -1,7 +1,6 @@
 const User = require("./model");
 
 const createUser = async (req, res) => {
-  console.log(req.body);
   const { username, password, roleId } = req.body;
 
   try {
@@ -25,7 +24,7 @@ const createUser = async (req, res) => {
 const getMe = async (req, res) => {
   try {
     const user = await User.findOne({
-      attributes: ["id", "username"],
+      attributes: ["id", "username", "roleId"],
       where: { username: req.user.username },
     });
     res.status(200).send({ user });

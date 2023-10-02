@@ -100,11 +100,12 @@ const submit = async () => {
     await form.value?.validate();
     loading.value = true;
     const { username, password } = state.value;
-    await signIn('credentials', { username, password,  redirect: true });
+    await signIn('credentials', { username, password,  callbackUrl:'/dashboard' });
+    loading.value = false;
   } catch (error) {
     errorMessage.value = error?.response._data.message; 
   }
 
-  return navigateTo("/dashboard")
+  return null
 };
 </script>

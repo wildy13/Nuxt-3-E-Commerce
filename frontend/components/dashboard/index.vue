@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen">
-    <DashboardNavbar v-if="data.user.userId" />
+    <DashboardNavbar v-if="data.user.roleId == 1" />
     <div v-else>Ini dashboard User</div>
   </div>
 </template>
