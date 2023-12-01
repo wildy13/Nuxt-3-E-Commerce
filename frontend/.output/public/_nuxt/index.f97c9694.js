@@ -1,1 +1,0 @@
-import{_,o as c,c as o,g as r}from"./entry.4678399a.js";const s={};function a(n,t){return c(),o("div",null,"This is Contact")}const p=_(s,[["render",a]]),u={__name:"index",setup(n){return(t,i)=>{const e=p;return c(),r(e)}}};export{u as default};
